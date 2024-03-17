@@ -22,3 +22,12 @@ resource "aws_instance" "terraform" {
         Name = "Test"
     }
 }
+
+
+resource "aws_instance" "test2" {
+  instance_type = "t3.micro"
+  ami = data.aws_ami.ubuntu.id
+    tags = {
+        Name = "Test2"
+    }
+}
