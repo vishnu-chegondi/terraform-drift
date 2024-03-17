@@ -1,9 +1,10 @@
+import os
 from slack_notifications import Slack
 
 
 def get_slack():
-    return Slack(SLACK_TOKEN)
-
+    slack_token = os.getenv("SLACK_TOKEN")
+    return Slack(slack_token)
 
 def send_slack_message(channel, username, text):
     slack = get_slack()

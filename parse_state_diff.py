@@ -1,12 +1,13 @@
 
 
 def diff_state_file(plan_output, plan_output_2):
+    diff_output = ""
     if len(plan_output)-len(plan_output_2) > 0:
         for line in plan_output_2.split("\n"):
-            plan_output = plan_output.replace(line, "").strip()
-        diff_output = plan_output
+            if line in plan_output:
+                diff_output=diff_output.trim()+line
     else:
         for line in plan_output.split("\n"):
-            plan_output_2 = plan_output_2.replace(line, "").strip()
-        diff_output = plan_output_2
+            if line in plan_output_2:
+                diff_output=diff_output.trim()+line
     return diff_output
